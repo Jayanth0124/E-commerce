@@ -3,8 +3,13 @@ const cors=require('cors');
 
 const app=express();
 
+const corsOptions = {
+  origin: 'https://vitoginglies.vercel.app/', // Replace with your actual Vercel frontend URL
+  optionsSuccessStatus: 200,
+};
+
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOptions))
 
 app.get("/",(req,res)=>{
     return res.status(200).send({message:"welcome to ecommerce api - node"})
